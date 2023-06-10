@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/ContactHandler/static/js/main.0e1ab146.js",
+    "main.js": "/ContactHandler/static/js/main.5d0ce4a8.js",
     "index.html": "/ContactHandler/index.html",
-    "main.0e1ab146.js.map": "/ContactHandler/static/js/main.0e1ab146.js.map"
+    "main.5d0ce4a8.js.map": "/ContactHandler/static/js/main.5d0ce4a8.js.map"
   },
   "entrypoints": [
-    "static/js/main.0e1ab146.js"
+    "static/js/main.5d0ce4a8.js"
   ]
 }
