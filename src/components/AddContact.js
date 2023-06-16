@@ -1,22 +1,27 @@
 import React from "react";
+import './AddContact.css';
 
 function AddContact()
 {
     return (
-        <div className="ui main">
-            <h2>Add Contact</h2>
-            <form className="ui form">
-                <div className="field">
-                    <label>Name</label>
-                    <input type="text" name="name" placeholder="Enter Name"></input>
-                </div>
-                <div className="field">
-                    <label>E-mail</label>
-                    <input type="text" name="email" placeholder="Enter E-mail"></input>
-                </div>
-                <button className="ui button blue">Add Contact</button>
-            </form>
+        <div className="container">
+        <h1>Add Contact</h1>
+        <form>
+        <div className="form-group">
+            <label>Name</label>
+            <input type="text" className="form-control" id="name" placeholder="Enter Name" required></input>
         </div>
+        <div className="form-group">
+            <label>Email</label>
+            <input type="email" className="form-control" id="email" placeholder="Enter e-mail" required></input>
+        </div>
+        <div className="form-group">
+            <label>Phone</label>
+            <input type="tel" className="form-control" id="phone" placeholder="Enter Phone" required></input>
+        </div>
+        <button type="submit" className="btn btn-primary btn-submit">Add Contact</button>
+        </form>
+    </div>
     )
 }
 

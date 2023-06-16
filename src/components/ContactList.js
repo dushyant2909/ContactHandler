@@ -1,17 +1,21 @@
 import React from "react";
 import ContactCard from "./ContactCard";
+import styles from "./ContactList.module.css"
 
 function ContactList(props)
 {
     const displayAllContacts = props.contacts.map((contact) => {
-        return <ContactCard name={contact.name} email={contact.email} />
+        return <ContactCard name={contact.name} email={contact.email} phone={contact.phone} />
         })
 
     return (
-        <div className="ui celled list">
-            Contact List
-            {displayAllContacts}
-        </div>
+            <div className={styles.container}>
+                
+                <h1>Contacts List</h1>
+                <div className="row" id={styles.outerrow}>
+                {displayAllContacts}
+            </div>
+            </div>
     )
 }
 

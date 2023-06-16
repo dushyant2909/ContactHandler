@@ -1,0 +1,21 @@
+.card_text{
+    margin-top: 3px;
+    margin-bottom: 5px;
+    /* background-color: green; */
+    /* display: inline-block; */
+}
+.card{
+    /* background-color: pink; */
+    border: 2px solid black;
+    padding: 2px 8px 10px ;
+    margin-bottom: 12px;
+}
+.buttonBox{
+    /* background-color: teal; */
+    display: flex;
+    justify-content: space-around;
+}
+.buttonBox button{
+    width: 40%;
+    height: fit-content;
+}

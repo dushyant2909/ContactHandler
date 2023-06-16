@@ -1,0 +1,54 @@
+*{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+.navbar{
+  height: auto;
+  width: 100vw;
+  padding: 10px;
+  margin-bottom: 1%;
+}
+button{
+  height: fit-content;
+}
+.navbar-toggler-icon{
+  height: 20px;
+  padding: 10px;
+}
+.navbar-brand{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar-brand h1{
+  margin: 0;
+  font-size: 25px;
+}
+#logo{
+height: 33px;
+padding: 0px 0px 0px 5px;
+margin-right: 14px;
+}
+.navbar-collapse{
+  padding-right: 50px;
+}
+
+.nav-item{
+  margin-right: 10px;
+}
+.nav-link{
+  box-sizing: border-box;
+  height: auto;
+  font-size: 20px;
+  padding: 0px;
+}
+
+@media (max-width: 999px) {
+  .navbar-nav {
+      margin-top: 10px;
+  }
+  .nav-item{
+      margin-bottom: 10px;
+  }
+}

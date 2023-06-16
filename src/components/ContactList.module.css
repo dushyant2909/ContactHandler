@@ -1,0 +1,13 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+
+}
+.container{
+    margin: 10px;
+}
+.container h1{
+    text-align: center;
+    margin-top: 5px;
+}
