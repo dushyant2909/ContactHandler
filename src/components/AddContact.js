@@ -1,25 +1,45 @@
 import React from "react";
 import './AddContact.css';
+import { useState } from "react";
 
-function AddContact()
+function AddContact(props)
 {
+    const [oldContacts,setContacts] = useState({
+        name:"",
+        email:"",
+        phone:""
+    });
+    const submitHandler = (event) =>{
+        event.preventDefault();
+        props.addNewContact(oldContacts);
+        setContacts({name:"",email:"",phone:""});
+    }
+
+    const changeHandler = (event) =>{
+        setContacts({
+            ...oldContacts,[event.target.name]:event.target.value,
+        })
+        
+    }
+
+
     return (
         <div className="container">
         <h1>Add Contact</h1>
-        <form>
+        <form onSubmit={submitHandler} action="#">
         <div className="form-group">
             <label>Name</label>
-            <input type="text" className="form-control" id="name" placeholder="Enter Name" required></input>
+            <input type="text" value={oldContacts.name} className="form-control" onChange={changeHandler} name="name" placeholder="Enter Name" required></input>
         </div>
         <div className="form-group">
             <label>Email</label>
-            <input type="email" className="form-control" id="email" placeholder="Enter e-mail" required></input>
+            <input type="email" value={oldContacts.email} className="form-control" onChange={changeHandler} name="email" placeholder="Enter e-mail" required></input>
         </div>
         <div className="form-group">
             <label>Phone</label>
-            <input type="tel" className="form-control" id="phone" placeholder="Enter Phone" required></input>
+            <input type="text" value={oldContacts.phone} className="form-control" onChange={changeHandler} name="phone" placeholder="Enter Phone" required></input>
         </div>
-        <button type="submit" className="btn btn-primary btn-submit">Add Contact</button>
+        <button type="tel" className="btn btn-primary btn-submit">Add Contact</button>
         </form>
     </div>
     )

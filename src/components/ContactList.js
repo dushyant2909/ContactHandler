@@ -4,8 +4,11 @@ import styles from "./ContactList.module.css"
 
 function ContactList(props)
 {
+    const deleteContactHandler = (id) =>{
+        props.deleteHandler(id);
+    }
     const displayAllContacts = props.contacts.map((contact) => {
-        return <ContactCard name={contact.name} email={contact.email} phone={contact.phone} />
+        return <ContactCard id={contact.id} name={contact.name} email={contact.email} phone={contact.phone} deleteHandler = {deleteContactHandler} />
         })
 
     return (

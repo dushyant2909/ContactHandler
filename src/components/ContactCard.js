@@ -3,6 +3,10 @@ import Cardstyles from "./ContactCard.module.css"
 
 function ContactCard(props)
 {
+  const deleteContact = ()=>{
+    props.deleteHandler(props.id);
+  }
+
     return (
     
       <div className="col-md-4">
@@ -15,7 +19,7 @@ function ContactCard(props)
             </p>
             <div className={Cardstyles.buttonBox}>
             <button id={Cardstyles.editBtn} className="btn btn-primary"><i className="fas fa-edit" ></i> Edit</button>
-            <button id={Cardstyles.editBtn} className="btn btn-danger"><i className="fas fa-trash"></i> Delete</button>
+            <button id={Cardstyles.editBtn} onClick={deleteContact} className="btn btn-danger"><i className="fas fa-trash"></i> Delete</button>
             </div>
           </div>
         </div>
