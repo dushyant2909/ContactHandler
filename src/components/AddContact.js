@@ -9,10 +9,12 @@ function AddContact(props)
         email:"",
         phone:""
     });
+
     const submitHandler = (event) =>{
         event.preventDefault();
         props.addNewContact(oldContacts);
         setContacts({name:"",email:"",phone:""});
+        alert("Contact Created Successfully")
     }
 
     const changeHandler = (event) =>{
@@ -24,23 +26,25 @@ function AddContact(props)
 
 
     return (
-        <div className="container">
-        <h1>Add Contact</h1>
-        <form onSubmit={submitHandler} action="#">
-        <div className="form-group">
-            <label>Name</label>
-            <input type="text" value={oldContacts.name} className="form-control" onChange={changeHandler} name="name" placeholder="Enter Name" required></input>
+        <div className="wrapper">
+            <div className="container">
+            <h1>Add Contact</h1>
+            <form onSubmit={submitHandler} action="#">
+            <div className="form-group">
+                <label>Name</label>
+                <input type="text" value={oldContacts.name} className="form-control" onChange={changeHandler} name="name" placeholder="Enter Name" required></input>
+            </div>
+            <div className="form-group">
+                <label>Email</label>
+                <input type="email" value={oldContacts.email} className="form-control" onChange={changeHandler} name="email" placeholder="Enter e-mail" required></input>
+            </div>
+            <div className="form-group">
+                <label>Phone</label>
+                <input type="text" value={oldContacts.phone} className="form-control" onChange={changeHandler} name="phone" placeholder="Enter Phone" required></input>
+            </div>
+            <button type="tel" className="btn btn-primary btn-submit">Add Contact</button>
+            </form>
         </div>
-        <div className="form-group">
-            <label>Email</label>
-            <input type="email" value={oldContacts.email} className="form-control" onChange={changeHandler} name="email" placeholder="Enter e-mail" required></input>
-        </div>
-        <div className="form-group">
-            <label>Phone</label>
-            <input type="text" value={oldContacts.phone} className="form-control" onChange={changeHandler} name="phone" placeholder="Enter Phone" required></input>
-        </div>
-        <button type="tel" className="btn btn-primary btn-submit">Add Contact</button>
-        </form>
     </div>
     )
 }

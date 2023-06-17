@@ -13,7 +13,6 @@ function ContactList(props)
 
     return (
             <div className={styles.container}>
-                
                 <h1>Contacts List</h1>
                 <div className="row" id={styles.outerrow}>
                 {displayAllContacts}
