@@ -11,11 +11,22 @@
     margin-bottom: 12px;
 }
 .buttonBox{
-    /* background-color: teal; */
     display: flex;
     justify-content: space-around;
 }
 .buttonBox button{
-    width: 40%;
+    width: 30%;
     height: fit-content;
+    padding: 2px 2px;
+}
+.nameContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* padding-right: 10px; */
+}
+#callBtn{
+    width: 20%;
+    height: fit-content;
+    padding: 2px 2px;
 }

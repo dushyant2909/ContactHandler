@@ -31,7 +31,6 @@ function App()
         addContacts(()=>{
             return ([...allContacts,{id:uuidv4(),...contact}]);
         })
-        // addContacts([...allContacts,contact]);
     }
 
     //To delete a contact
@@ -64,12 +63,17 @@ function App()
         console.log(filterSearchContact);
     } 
 
+    // To handle make call
+    const handleCall = (phoneNumber) => {
+        window.location.href = `tel:${phoneNumber}`;
+      };
+
     return (
         <Router>
             <Header />
             <Routes>
                 <Route path="ContactHandler/" element={<AddContact addNewContact = {addContactHandler} />} />
-                <Route path="ContactHandler/allContacts" element={<ContactList contacts={searchResults.length > 0 ? searchResults.sort((a, b) => a.name.localeCompare(b.name)) : allContacts.sort((a, b) => a.name.localeCompare(b.name))} deleteHandler = {deleteHandler} searchHandler ={searchHandler} />} />
+                <Route path="ContactHandler/allContacts" element={<ContactList contacts={searchResults.length > 0 ? searchResults.sort((a, b) => a.name.localeCompare(b.name)) : allContacts.sort((a, b) => a.name.localeCompare(b.name))} deleteHandler = {deleteHandler} searchHandler ={searchHandler} callHandler = {handleCall} />} />
                 <Route path="ContactHandler/editContact/:id" element={<EditContact saveChangesHandler={editHandler} />} />
             </Routes>
         </Router>

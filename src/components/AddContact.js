@@ -10,20 +10,20 @@ function AddContact(props)
         phone:""
     });
 
+    // To handle contact submission
     const submitHandler = (event) =>{
         event.preventDefault();
         props.addNewContact(oldContacts);
         setContacts({name:"",email:"",phone:""});
         alert("Contact Created Successfully")
     }
-
+    // To handle edit in contact
     const changeHandler = (event) =>{
         setContacts({
             ...oldContacts,[event.target.name]:event.target.value,
         })
         
     }
-
 
     return (
         <div className="wrapper">

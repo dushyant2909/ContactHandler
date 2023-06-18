@@ -6,16 +6,23 @@ function ContactCard(props)
 {
   const navigate = useNavigate();
 
+  // To edit a contact
   const editHandler =(id, name, email, phone)=>{
     navigate(`/ContactHandler/editContact/${id}`, 
       { state: { id:id, contactName: name, contactEmail: email, contactPhone: phone }
     })
   }
-
+  
+  //To delete contact
   const deleteContact = ()=>{
     let confirmation = window.confirm("Do you want to delete contact");
     if (confirmation === true)
     props.deleteHandler(props.id);
+  }
+  
+  //To make call
+  const callHandler = (phone) =>{
+    props.callHandler(phone);
   }
 
     return (
@@ -23,7 +30,10 @@ function ContactCard(props)
       <div className="col-md-4">
         <div className={Cardstyles.card}>
           <div className="card-body">
+            <div className={Cardstyles.nameContainer}>
             <h5 className="card-title">{props.name}</h5>
+            <button className="btn btn-success" onClick={()=>{callHandler(props.phone)}} id={Cardstyles.callBtn}><i className="fas fa-phone"></i> Call</button>
+            </div>
             <p className={Cardstyles.card_text}>
               Email: {props.email}<br/>
               Phone: {props.phone}
