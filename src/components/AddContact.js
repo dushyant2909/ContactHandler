@@ -40,9 +40,9 @@ function AddContact(props)
             </div>
             <div className="form-group">
                 <label>Phone</label>
-                <input type="text" value={oldContacts.phone} className="form-control" onChange={changeHandler} name="phone" placeholder="Enter Phone" required></input>
+                <input type="tel" value={oldContacts.phone} className="form-control" onChange={changeHandler} name="phone" placeholder="Enter Phone" required></input>
             </div>
-            <button type="tel" className="btn btn-primary btn-submit">Add Contact</button>
+            <button type="submit" className="btn btn-primary btn-submit">Add Contact</button>
             </form>
         </div>
     </div>

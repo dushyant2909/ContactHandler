@@ -12,6 +12,7 @@ import { useEffect } from "react";
 function App()
 {
     const [allContacts,addContacts] = useState([])
+
     const LocalStorageKey = "contacts"; //For local Storage
 
     useEffect(()=>{// Always put it before set wala use effect
@@ -24,6 +25,7 @@ function App()
         localStorage.setItem(LocalStorageKey,JSON.stringify(allContacts))
     },[allContacts])
 
+    // To add new contact
     const addContactHandler = (contact) =>{
         addContacts(()=>{
             return ([...allContacts,{id:uuidv4(),...contact}]);
@@ -31,13 +33,22 @@ function App()
         // addContacts([...allContacts,contact]);
     }
 
+    //To delete a contact
     const deleteHandler = (id) =>{
         const dummyContactList = allContacts.filter((contact)=>{
             return (contact.id !== id);
         })
         addContacts(dummyContactList);
-        // console.log(dummyContactList);
     }
+
+    //To handle edited contact
+    const editHandler = (editedContact) => {
+        addContacts((prevContacts) =>
+          prevContacts.map((contact) =>
+            contact.id === editedContact.id ? editedContact : contact
+          )
+        );
+      };
 
     return (
         <Router>
@@ -45,7 +56,7 @@ function App()
             <Routes>
                 <Route path="ContactHandler/" element={<AddContact addNewContact = {addContactHandler} />} />
                 <Route path="ContactHandler/allContacts" element={<ContactList contacts = {allContacts} deleteHandler = {deleteHandler} />} />
-                <Route path="ContactHandler/editContact/:id" element={<EditContact />} />
+                <Route path="ContactHandler/editContact/:id" element={<EditContact saveChangesHandler={editHandler} />} />
             </Routes>
         </Router>
     )

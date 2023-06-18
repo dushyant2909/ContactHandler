@@ -8,7 +8,7 @@ function ContactCard(props)
 
   const editHandler =(id, name, email, phone)=>{
     navigate(`/ContactHandler/editContact/${id}`, 
-      { state: { contactName: name, contactEmail: email, contactPhone: phone }
+      { state: { id:id, contactName: name, contactEmail: email, contactPhone: phone }
     })
   }
 
