@@ -22,9 +22,6 @@ function Header()
                     <li className="nav-item">
                     <NavLink className="nav-link" exact to="ContactHandler/allContacts" activeClassName="active">All Contacts</NavLink>
                     </li>
-                    <li className="nav-item">
-                    <NavLink className="nav-link" exact to="/search" activeClassName="active">Search Contact</NavLink>
-                    </li>
                 </ul>
             </div>
         </div>

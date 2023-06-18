@@ -11,3 +11,8 @@
     text-align: center;
     margin-top: 5px;
 }
+#searchBox{
+    margin: auto;
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+}

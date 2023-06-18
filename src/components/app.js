@@ -12,6 +12,7 @@ import { useEffect } from "react";
 function App()
 {
     const [allContacts,addContacts] = useState([])
+    const [searchResults, filterSearchContact] = useState([]);
 
     const LocalStorageKey = "contacts"; //For local Storage
 
@@ -50,12 +51,25 @@ function App()
         );
       };
 
+    //To handle search of contact
+    const searchHandler =(searchValue) =>{
+        // filterSearchContact(searchValue);
+        console.log(searchValue);
+        const filteredResults = allContacts.filter((contact) =>
+            contact.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+            contact.email.toLowerCase().includes(searchValue.toLowerCase()) ||
+            contact.phone.toLowerCase().includes(searchValue.toLowerCase())
+            );
+        filterSearchContact(filteredResults);
+        console.log(filterSearchContact);
+    } 
+
     return (
         <Router>
             <Header />
             <Routes>
                 <Route path="ContactHandler/" element={<AddContact addNewContact = {addContactHandler} />} />
-                <Route path="ContactHandler/allContacts" element={<ContactList contacts = {allContacts} deleteHandler = {deleteHandler} />} />
+                <Route path="ContactHandler/allContacts" element={<ContactList contacts={searchResults.length > 0 ? searchResults.sort((a, b) => a.name.localeCompare(b.name)) : allContacts.sort((a, b) => a.name.localeCompare(b.name))} deleteHandler = {deleteHandler} searchHandler ={searchHandler} />} />
                 <Route path="ContactHandler/editContact/:id" element={<EditContact saveChangesHandler={editHandler} />} />
             </Routes>
         </Router>
